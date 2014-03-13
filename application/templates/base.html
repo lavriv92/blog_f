@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"> 
+  <head>
+    <meta charset="utf-8" />
+	<title>Blog Lavriv</title>
+	<link href="static/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body>
+	<div id="main" class="container">
+	  <header>
+	    <h2 class="baner">Blog</h2>
+	  </header>
+	  <div class="row" style="height: 500px">
+	    <div class="col-md-7">
+	    {% block main %}
+	    {% endblock %}
+	    </div>
+	    <div class="col-md-3">
+		  <h3>Ivan Lavriv</h3>
+		  <p><i>Developer, teacher, blogger</i></p>
+	    </div>
+	  </div>
+	  <footer>
+		<small>&copy @ilavriv</small>
+	  </footer>
+	</div>
+  </body>
+</html>
