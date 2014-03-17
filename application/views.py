@@ -1,13 +1,13 @@
 from flask import render_template
 from application import app
-from models import Category, Post
+from .models import Category, Post
 
 
 @app.route('/')
 def index():
-    categories = Category.query.all()
+    posts = Post.query.limit(5)
     context = {
-        'categories': categories
+        'posts': posts
     }
     return render_template('core/index.html', **context)
 
@@ -18,12 +18,12 @@ def categories():
     context = {
         'categories': categories
     }
-    return render_template('categories.html', **context)
+    return render_template('posts/categories.html', **context)
 
 
 @app.route('/posts')
 def posts():
-    posts = Post.query.all().limit(5)
+    posts = Post.query.limit(5)
     context = {
         'posts': posts
     }
