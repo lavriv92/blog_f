@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h2>Contacts</h2>
+<div id="contacts" class="row">
+	<ul>
+		<li><strong>Email:</strong> lavriv92@gmail.com</li>
+		<li><strong>Twitter:</strong> <a href="https://twitter.com/ilavriv" target="_blank">@ilavriv</a></li>
+		<li><strong>Facebook:</strong> <a href="https://www.facebook.com/ivan.lavriv" target="_blank">Ivan Lavriv</a></li>
+	</ul>
+</div>
+<div class="row">
+	<div class="col-md-6">
+		<h3>Send message</h3>
+		<form method="post">
+			{{ form.csrf_token }}
+			{% for field in form %}
+			<div class="form-group">
+				<div>{{ field(class='form-control', placeholder=field.name) }}</div>
+				{% for err in field.errors %}
+				<small class="text-warning">{{ err }}</small>
+				{% endfor %}
+			</div>
+			{% endfor %}
+			<input type="submit" value="Send" class="btn btn-success"/>
+		</form>
+	</div>
+</div>
+{% endblock %}

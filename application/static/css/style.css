@@ -1,0 +1,6 @@
+menu li{
+	list-style: none;
+	display: inline-block;
+	margin-right: 10px;
+	line-height: 60px;
+}

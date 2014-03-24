@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h2>Category: </h2>
+<div class="row">
+	{% for post in posts %}
+	<div>
+		<a href="#">{{ post.title }}</a>
+		<small>{{ post.created }}</small>
+	</div>
+	{% else %}
+	<div>
+	<small>Posts not found</small>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}
