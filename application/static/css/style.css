@@ -4,3 +4,16 @@ menu li{
 	margin-right: 10px;
 	line-height: 60px;
 }
+
+header {
+	border-bottom: 1px solid #ddd;
+}
+
+footer {
+	border-top: 1px solid #ddd;
+}
+
+#contacts {
+	border-bottom: 1px solid #ddd;
+	margin: 10px;
+}

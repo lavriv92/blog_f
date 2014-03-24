@@ -14,7 +14,6 @@ def index():
     return render_template('core/index.html', **context)
 
 
-@app.route('/contacts', methods=['POST', 'GET'])
 @app.route('/contacts/', methods=['GET', 'POST'])
 def contacts():
     form = ContactForm()
@@ -27,13 +26,11 @@ def contacts():
     return render_template('core/contacts.html', **context)
 
 
-@app.route('/categories')
 @app.route('/categories/')
 def categories():
     return render_template('core/index.html')
 
 
-@app.route('/archive')
 @app.route('/archive/')
 def archive():
     return render_template('core/index.html')
