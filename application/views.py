@@ -28,7 +28,11 @@ def contacts():
 
 @app.route('/categories/')
 def categories():
-    return render_template('core/index.html')
+    categories = Category.query.all()
+    context = {
+        'categories': categories
+    }
+    return render_template('posts/categories.html', **context)
 
 
 @app.route('/archive/')
@@ -36,7 +40,7 @@ def archive():
     return render_template('core/index.html')
 
 
-@app.route('/categories/<id>')
+@app.route('/categories/<id>/')
 def category_detail(id):
     category = Category.query.filter_by(id=int(id)).first()
     if category is not None:
@@ -48,10 +52,10 @@ def category_detail(id):
     abort(statuses.NOT_FOUND)
 
 
-@app.route('/posts')
-def posts():
-    posts = Post.query.limit(5)
+@app.route('/post/<id>/')
+def post_detail(id):
+    post = Post.query.filter_by(id=int(id)).first()
     context = {
-        'posts': posts
+        'post': post
     }
     return render_template('posts/posts.html', **context)

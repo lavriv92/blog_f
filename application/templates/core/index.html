@@ -2,4 +2,11 @@
 
 {% block main %}
 <h2>Latest posts</h2>
+	{% for post in posts %}
+	<div>
+		<h4><a href="{{ post.id }}">{{ post.title|title }}</a></h4>
+			<p class="text-justify">{{ post.content|truncate(280)}}</p>
+		<small>{{ post.created }}</small>
+	</div>
+	{% endfor %}
 {% endblock %}

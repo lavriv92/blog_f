@@ -8,16 +8,10 @@ class Category(db.Model):
     """
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), unique=True)
-    created = db.Column(db.DateTime)
+    created = db.Column(db.DateTime, default=datetime.now())
 
-    def __init__(self, title, created=None):
-        self.title = title
-        if created is None:
-            created = datetime.now()
-        self.created = created
-
-    def __repr__(self):
-        return '<Category %s>' % self.title
+    def __unicode__(self):
+        return self.title
 
 
 class Post(db.Model):
@@ -27,18 +21,11 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), unique=True)
     content = db.Column(db.Text)
-    created = db.Column(db.DateTime)
+    created = db.Column(db.DateTime, default=datetime.now())
 
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
     category = db.relationship('Category',
                                backref=db.backref('posts', lazy='dynamic'))
 
-    def __init__(self, title, content, created=None):
-        self.title = title
-        self.content = content
-        if created is None:
-            created = datetime.now()
-        self.created = created
-
-    def __repr__(self):
-        return '<Post %s>' % self.title
+    def __unicode__(self):
+        return self.title
